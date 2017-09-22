@@ -1,2 +1,2 @@
-# ccl-raindrop
+# raindrop
 raindrop
