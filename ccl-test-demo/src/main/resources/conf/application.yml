@@ -1,5 +1,5 @@
 worker:
-  name: raindrop
+  name: ccl-test-demo
   server:
     port: 8089
     webContext: ccl-jettyserver/src/main/webapp
