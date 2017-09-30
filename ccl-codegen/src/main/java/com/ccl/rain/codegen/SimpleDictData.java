@@ -1,5 +1,7 @@
 package com.ccl.rain.codegen;
 
+import com.ccl.rain.common.DictData;
+
 public class SimpleDictData implements DictData {
 
 	protected String value;

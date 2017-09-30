@@ -1,8 +1,8 @@
 package com.ccl.rain.codegen.serializer;
 
 
-import com.ccl.rain.codegen.DataTypeConvertUtils;
-import com.ccl.rain.codegen.DictData;
+import com.ccl.rain.common.DictData;
+import com.ccl.rain.common.utils.DataTypeConvertUtils;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;

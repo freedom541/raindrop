@@ -14,6 +14,8 @@
 package com.ccl.rain.codegen;
 
 import com.ccl.rain.codegen.serializer.SimpleDictSerializer;
+import com.ccl.rain.common.DictData;
+import com.ccl.rain.common.utils.DataTypeConvertUtils;
 import com.google.common.io.Files;
 import com.mysema.codegen.CodeWriter;
 import com.mysema.codegen.ScalaWriter;

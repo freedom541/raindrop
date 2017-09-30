@@ -1,5 +1,6 @@
-package com.ccl.rain.codegen;
+package com.ccl.rain.common.utils;
 
+import com.ccl.rain.common.DictData;
 import org.apache.commons.beanutils.ConvertUtils;
 import org.apache.commons.beanutils.Converter;
 import org.apache.commons.beanutils.MethodUtils;

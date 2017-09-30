@@ -1,6 +1,7 @@
 package com.ccl.rain.codegen;
 
 import com.ccl.rain.common.Messages;
+import com.ccl.rain.common.utils.DataTypeConvertUtils;
 import com.querydsl.core.Tuple;
 import org.apache.commons.lang3.reflect.FieldUtils;
 

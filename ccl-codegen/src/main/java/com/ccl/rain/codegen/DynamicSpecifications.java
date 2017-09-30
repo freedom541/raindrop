@@ -1,5 +1,6 @@
 package com.ccl.rain.codegen;
 
+import com.ccl.rain.common.utils.DataTypeConvertUtils;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.Predicate;

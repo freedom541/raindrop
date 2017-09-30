@@ -1,9 +1,9 @@
-package com.ccl.rain.codegen;
+package com.ccl.rain.common;
 
 /**
  * 字典数据
  *
- * @author ccl
+ * @author Dean
  */
 public interface DictData {
 
