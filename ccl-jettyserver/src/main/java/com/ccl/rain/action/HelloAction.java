@@ -1,4 +1,4 @@
-package com.ccl.rain.greel.action;
+package com.ccl.rain.action;
 
 import com.ccl.rain.greel.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;

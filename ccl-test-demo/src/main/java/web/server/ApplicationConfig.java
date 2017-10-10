@@ -14,7 +14,7 @@ import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 public class ApplicationConfig extends ResourceConfig {
 
     public ApplicationConfig() {
-        packages("com.ccl");
+        packages("com.ccl.action");
         register(LoggingFilter.class);
         register(RequestContextFilter.class);
         register(JacksonFeature.class);

@@ -1,8 +1,10 @@
 package com.ccl.rain.server;
 
+import com.ccl.rain.action.HelloAction;
 import com.ccl.rain.client.RemotingFaceRegistry;
 import com.ccl.rain.cluster.AliveKeeping;
 import com.ccl.rain.common.Configs;
+import com.ccl.rain.server.container.ApplicationConfig;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -25,16 +27,14 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 import javax.servlet.DispatcherType;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Created by ccl on 17/8/28.
  */
 public class WebJettyServer {
     private static final Logger logger = LoggerFactory.getLogger(WebJettyServer.class);
+    public static final String SCAN_BASE_PACKAGE = "com.ccl";
     private int port = Configs.getInt("worker.server.port");
     private ResourceConfig config;
     private String apiPath = "/rest";
@@ -76,15 +76,22 @@ public class WebJettyServer {
 
             Server server = new Server(port);//1.建立server，设置端口
             //3.请求处理资源
+            //增加默认配置
             if (Objects.isNull(config)){
                 config = new ApplicationConfig();
             }
             //打开日志,便于调试
-            if (!config.isRegistered(LoggingFilter.class))
+            if (!config.isRegistered(LoggingFilter.class)) {
                 config.register(LoggingFilter.class);
-            if (!config.isRegistered(RequestContextFilter.class))
+            }
+            if (!config.isRegistered(RequestContextFilter.class)) {
                 config.register(RequestContextFilter.class);
-
+            }
+            //默认的问候包
+            Set<Class<?>> packages = config.getApplication().getClasses();
+            if (!packages.contains(HelloAction.class)) {
+                config.packages("com.ccl.rain.action");
+            }
             ServletHolder sh = new ServletHolder(new ServletContainer(config));
 
             ServletContextHandler servletContext = new ServletContextHandler(ServletContextHandler.SESSIONS);
@@ -147,7 +154,7 @@ public class WebJettyServer {
     }
 
     @Configuration
-    @ComponentScan({"com.ccl"})
+    @ComponentScan({SCAN_BASE_PACKAGE})
     @ImportResource({"classpath*:META-INF/spring/*.xml"})
     public static class SpringRootConfiguration {
 
